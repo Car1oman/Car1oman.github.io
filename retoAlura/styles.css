@@ -1,0 +1,340 @@
+/* Encriptador - 1 Desktop */
+.titulo-principal{
+    font-size: 35px;
+    font-weight: bold;
+    color: #064962;
+    position: relative;
+    left: 55%;
+    top: 49px;
+    font-family: cursive;
+    font-style: italic;
+    text-transform: uppercase;
+}
+.logo-carloman{
+    display: inline-block;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 40px;
+    position: absolute;
+    width: 120px;
+    height: 48px;
+    left: 75px;
+    top: 34px;
+}
+
+#logo-carloman{
+    background: none;
+}
+
+.cuerpo{
+    position: relative;
+    width: 100%;
+    height: auto;
+    background: #f9b961;
+}
+
+.resultado{
+    position: absolute;
+    width: 400px;
+    height: 600px;
+    left: 1000px;
+    top: 40px;
+    background: #F3F5FC;
+    box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
+    border-radius: 32px;
+}
+
+#resultado{
+    width: 85%;
+    height: 80%;
+    background-color: transparent;
+    margin: 2em 1em;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 150%;
+    color: #0A3871;
+    vertical-align: middle;
+    text-align: center;
+    border: none;
+    resize: none;
+    cursor: none;
+}
+
+#resultado:focus{
+    outline: none;
+}
+
+#texto{
+    position: absolute;
+    width: 577px;
+    height: 600px;
+    left: 240px;
+    top: 168px;
+    background:#f9b961;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 150%;
+    color: #0A3871;
+    border: none;
+    resize: none;
+}
+
+#texto:focus{
+    outline: none;
+}
+
+.limitaciones{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 8px;
+
+    position: absolute;
+    width: 229px;
+    height: 18px;
+    left: 240px;
+    top: 500px;
+}
+
+.limitaciones h5{
+    width: 205px;
+    height: 18px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+}
+
+.botones{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 24px;
+
+    position: absolute;
+    width: 680px;
+    height: 67px;
+    left: 240px;
+    top: 550px;
+}
+
+.boton{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 24px;
+    gap: 8px;
+    width: 328px;
+    height: 67px;
+    background: #0A3871;
+    border-radius: 24px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    font-size: 20px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    justify-content: center;
+    transition: 0.5s;
+}
+.boton:hover, #boton-copiar:hover{
+    cursor: pointer;
+    background-color: lightblue;
+    transform: scale(1.10);
+    color: darkred;
+}
+
+.boton:active, #boton-copiar:active{
+    cursor: pointer;
+    background-color: #0A3871;
+    transform: scale(0.9);
+    color: yellow;
+}
+
+.resultado button{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px;
+    gap: 8px;
+    width: 328px;
+    height: 67px;
+    background: #0A3871;
+    border-radius: 24px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    font-size: 20px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    justify-content: center;
+    transition: 0.5s;
+}
+
+
+.muñeco{
+    position: absolute;
+    width: 300px;
+    height: 304px;
+    left: 30px;
+    top: 60px;
+}
+
+.texto-mensaje{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 16px;
+    position: absolute;
+    width: 336px;
+    height: 122px;
+    left: 30px;
+    top: 405px;
+}
+
+.mensaje-no-encontrado{
+    width: 336px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 120%;
+    text-align: center;
+    color: #ADB5BD;
+}
+
+.sugerencia{
+    width: 336px;
+    height: 172px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    text-align: center;
+    color: #495057;
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+#boton-copiar{
+    width: 283px;
+    height: 38px;
+    position: relative;
+    top: 304px;
+    left: 67px;
+    vertical-align: middle;
+}
+
+footer{
+    text-align: center;
+    background-color: black;
+    position: absolute;
+    width: 100%;
+    height: 31px;
+    left: 0px;
+    top: 993px;
+    color: #FFFFFF;
+    font-size: 12px;
+}
+
+@media screen and (max-width:480px){
+
+    .footer p{
+        width: 100%;
+    }
+    header, .caja, .cuerpo, #texto, .botones{
+        width: auto;
+        height: auto;
+    }
+
+    .resultado{
+        position: absolute;
+        width: auto;
+        height: 200px;
+        left: 23px;
+        top: 636px;
+    }
+
+    .texto-mensaje{
+        position: absolute;
+        top: 54px;
+        left: 9px;
+    }
+    
+    #muñeco, .muñeco{
+        width: 305px;
+        height: 128px;
+        position: absolute;
+        top: 11px;
+        left: 69px;
+    }
+
+    .logo-carloman{
+        position: absolute;
+        top: 42px;
+        left: 12px;
+    }
+
+    .titulo-principal{
+        position: absolute;
+        top: 35px;
+        left: 109px;
+        text-align: center;
+    }
+
+    #texto{
+        position: absolute;
+        top: 119px;
+        left: 30px;
+        height: 273px;
+    }
+    .limitaciones{
+        position: absolute;
+        top: 403px;
+        left: 28px;
+    }
+
+    .botones{
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 427px;
+        left: 32px;
+        margin: 20px;
+    }
+
+    #boton-copiar{
+        position: absolute;
+        top: 221px;
+        left: 60px;
+    }
+    
+    #sugerencia{
+        width: auto;
+        height: 10px;
+    }
+
+    #mensaje-no-encontrado{
+    font-size: 25px;
+    text-align: initial;
+    }
+
+    footer{
+        /* width: 100%; */
+    }
+}
