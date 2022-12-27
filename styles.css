@@ -30,8 +30,8 @@
 .cuerpo{
     position: relative;
     width: 100%;
-    height: auto;
     background: #f9b961;
+    overflow: hidden;
 }
 
 .resultado{
@@ -233,30 +233,36 @@ footer{
     text-align: center;
     background-color: black;
     position: absolute;
-    width: 100%;
+    width: 108%;
     height: 31px;
-    left: 0px;
-    top: 993px;
+    left: -31px;
+    top: 682px;
     color: #FFFFFF;
     font-size: 12px;
+    margin-bottom: 32px;
 }
 
 @media screen and (max-width:480px){
 
-    .footer p{
-        width: 100%;
+    .cuerpo{
+        margin: auto 2em;
     }
-    header, .caja, .cuerpo, #texto, .botones{
+
+    header, .caja, #texto, .botones, #resultado{
         width: auto;
-        height: auto;
     }
 
     .resultado{
-        position: absolute;
-        width: auto;
         height: 200px;
         left: 23px;
         top: 636px;
+    }
+
+    #resultado{
+        position: absolute;
+        top: 17px;
+        left: 35px;
+        height: 170px;
     }
 
     .texto-mensaje{
@@ -275,8 +281,8 @@ footer{
 
     .logo-carloman{
         position: absolute;
-        top: 42px;
-        left: 12px;
+        top: 32px;
+        left: -24px;
     }
 
     .titulo-principal{
@@ -288,8 +294,8 @@ footer{
 
     #texto{
         position: absolute;
-        top: 119px;
-        left: 30px;
+        top: 209px;
+        left: 93px;
         height: 273px;
     }
     .limitaciones{
@@ -324,6 +330,7 @@ footer{
     }
 
     footer{
-        /* width: 100%; */
+        top: 936px;
+        width: 156%;
     }
 }
