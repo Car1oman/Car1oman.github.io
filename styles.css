@@ -1,336 +1,399 @@
-/* Encriptador - 1 Desktop */
-.titulo-principal{
-    font-size: 35px;
-    font-weight: bold;
-    color: #064962;
-    position: relative;
-    left: 55%;
-    top: 49px;
-    font-family: cursive;
-    font-style: italic;
-    text-transform: uppercase;
-}
-.logo-carloman{
-    display: inline-block;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 40px;
-    position: absolute;
-    width: 120px;
-    height: 48px;
-    left: 75px;
-    top: 34px;
-}
+/*Probando estilos*/
+/*Definimos una animación para el fondo de pantalla*/
+html{
+    background-image: url('cielo.jpg');
+    animation: cielo-estrellado 120s linear infinite;
+  }
+  
+  @keyframes cielo-estrellado {
+    0% {
+      background-image: url('estrella1.jpg');
+    }
+    16.66% {
+      background-image: url('estrella2.jpg');
+    }
+    33.32% {
+      background-image: url('estrella3.jpg');
+    }
+    66.66%{
+        background-image: url('estrella4.jpg');
+    }
+    100% {
+      background-image: url('cielo.jpg');
+    }
+  }
 
-#logo-carloman{
-    background: none;
-}
-
-.cuerpo{
-    position: relative;
-    width: 100%;
-    background: #f9b961;
+/*Le damos estilos al cuerpo y definimos la altura y ancho*/
+body{
+    
+    max-width: 1300px;
+    height: 680px;
+    margin: 1% 5%;
     overflow: hidden;
 }
 
-.resultado{
+/*Estilos para el contenedor del título y logo*/
+
+.caja{
     position: absolute;
-    width: 400px;
-    height: 600px;
-    left: 1000px;
-    top: 40px;
-    background: #F3F5FC;
-    box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
-    border-radius: 32px;
+    width: 60%;
+    height: 10%;
 }
 
-#resultado{
-    width: 85%;
-    height: 349px;
+/*Imagen de logo*/
+#logo-carloman{
     position: absolute;
-    top: 82px;
-    left: 37px;
-    background-color: transparent;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: bold;
-    font-size: 32px;
-    line-height: 150%;
-    color: #0A3871;
-    vertical-align: middle;
+    top: 20%;
+    left: 10%;
+    
+}
+/*Le damos estilos al título principal*/
+
+.titulo-principal{
     text-align: center;
-    border: none;
-    resize: none;
-    cursor: none;
+    font-family: cursive;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 30px;
+    color: #FFFFFF;
+    position: absolute;
+    top: 30%;
+    left: 25%;
 }
 
-#resultado:focus{
-    outline: none;
-}
+/*Estilos para el área de ingresar texto*/
 
 #texto{
+    background: none;
     position: absolute;
-    width: 577px;
-    height: 600px;
-    left: 240px;
-    top: 168px;
-    background:#f9b961;
+    top: 20%;
+    left: 20%;
+    width: 40%;
+    height: 50%;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 32px;
     line-height: 150%;
-    color: #0A3871;
-    border: none;
+    color: #d5dce5;
     resize: none;
+    border-radius: 25px;
+    border-color: black;
+    border-width: 2px;
 }
+/*Le damos estilos al placheholder del cuadro de entrada de texto*/
 
-#texto:focus{
+#texto::placeholder {
+    color: wheat;
+  }  
+
+/*Hacemos que no aparezca borde en los textarea al hacer click*/
+#texto:focus, #resultado:focus{
     outline: none;
 }
+
+/*Estilos para el área de restricciones*/
 
 .limitaciones{
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 0px;
-    gap: 8px;
-
     position: absolute;
-    width: 229px;
-    height: 18px;
-    left: 240px;
-    top: 500px;
+    top: 72%;
+    left: 20%;
 }
 
+/*Estilos para las letras de las restricciones*/
 .limitaciones h5{
-    width: 205px;
+    width: 255px;
     height: 18px;
 
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 12px;
-    line-height: 150%;
+    font-size: 15px;
+    line-height: 110%;
+    color: #FFFFFF;
+    position: absolute;
+    left: 30px;
 }
+
+/*Hacemos visible el simbolo de alerta*/
+#alerta{
+    background: #FFFFFF;
+    border-radius: 10px;
+    border-width: 30px;
+}
+
+/*Le damos estilos al simbolo de alerta cada vez que el cursor pasa sobre él*/
+#alerta:hover{
+    cursor: pointer;
+    background-color: rgb(243, 235, 235);
+    transform: scale(1.5);
+    border-radius: 10px;
+}
+
+/*Estilos para contenedor de botones*/
 
 .botones{
+    width: 40%;
+    height: 67px;
+    position: absolute;
+    top: 80%;
+    left: 20%;
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 24px;
-
-    position: absolute;
-    width: 680px;
-    height: 67px;
-    left: 240px;
-    top: 550px;
+    align-items: center;
 }
+
+/*Estilo para botón individual*/
 
 .boton{
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    padding: 24px;
-    gap: 8px;
-    width: 328px;
-    height: 67px;
-    background: #0A3871;
-    border-radius: 24px;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-    font-size: 20px;
+    background: transparent;
+    width: 50%;
+    height: 100%;
+    margin: 1%;
+    border-radius: 25px;
+    font-size: 25px;
     font-weight: bold;
     color: #FFFFFF;
-    text-transform: uppercase;
-    justify-content: center;
     transition: 0.5s;
 }
+
+/*Le damos estilos a los botones cada vez que el cursor pasa sobre ellos*/
+
 .boton:hover, #boton-copiar:hover{
     cursor: pointer;
-    background-color: lightblue;
-    transform: scale(1.10);
-    color: darkred;
+    transform: scale(1.05);
+    background: #e783b8;
+    color: black;
+    border: none;
 }
 
+/*Ahora le damos estilos al hacer click a los botones*/
 .boton:active, #boton-copiar:active{
-    cursor: pointer;
-    background-color: #0A3871;
-    transform: scale(0.9);
-    color: yellow;
-}
-
-.resultado button{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 24px;
-    gap: 8px;
+    transform: scale(1);
 }
 
 
-.muñeco{
+/*Estilos para contenedor de resultados*/
+
+.resultado{
+    background: #8fc0d8;
+    width: 25%;
+    height: 80%;
     position: absolute;
-    width: 300px;
-    height: 304px;
-    left: 30px;
-    top: 60px;
+    left: 65%;
+    padding: 1em;
+    top: 5%;
+    border-radius: 35px;
 }
 
-.texto-mensaje{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 16px;
+/*Estilos para texto de resultado*/
+#resultado{
+    width: 90%;
+    height: 500px;
+    resize: none;
+    background: transparent;
+    border: none;
     position: absolute;
-    width: 336px;
-    height: 122px;
-    left: 30px;
-    top: 405px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 150%;
+    color: #03142a;
 }
 
-.mensaje-no-encontrado{
-    width: 336px;
+/*Estilos para el dibujo de niño  con lupa*/
+#muñeco{
+    position: absolute;
+    top: 10%;
+}
+
+/*Estilos para texto: "Ningún mensaje fue encontrado"*/
+#mensaje-no-encontrado{
+    position: absolute;
+    width: 91.5%;
+    top: 70%;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
     font-size: 30px;
     line-height: 120%;
     text-align: center;
-    color: #ADB5BD;
+    color: #755855;
 }
 
-.sugerencia{
-    width: 336px;
-    height: 172px;
+/*Estilos para texto de sugerencia "Ingresa  el texto que deseas encriptar o desencriptar"*/
+#sugerencia{
+    position: absolute;
+    width: 91.5%;
+    top: 85%;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 150%;
     text-align: center;
-    color: #495057;
-    flex: none;
-    order: 1;
-    align-self: stretch;
-    flex-grow: 0;
+    color: #404245;
 }
+
+
+/*Estilos para boton copiar*/
 
 #boton-copiar{
-    width: 283px;
-    height: 38px;
-    position: relative;
-    top: 530px;
-    left: 67px;
-    vertical-align: middle;
-}
-
-footer{
-    text-align: center;
-    background-color: black;
+    width: 90%;
+    height: 60px;
     position: absolute;
-    width: 108%;
-    height: 31px;
-    left: -31px;
-    top: 682px;
-    color: #FFFFFF;
-    font-size: 12px;
-    margin-bottom: 32px;
+    bottom: 0;
+    margin: 1%;
 }
+/*Estilos para el pie de página*/
+footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgb(16, 16, 1);
+    text-align: center;
+    font-size: 12px;
+    color: #FFFFFF;
+}
+    
+/*Ahora iniciamos a darle estilos a la versión movil, con un acho maximo de 480px*/
 
-@media screen and (max-width:480px){
-
-    .cuerpo{
-        margin: auto 2em;
-    }
-
-    header, .caja, #texto, .botones, #resultado{
+@media screen and (orientation: portrait) { 
+    body,footer{
         width: auto;
     }
 
-    .resultado{
-        height: 200px;
-        left: 23px;
-        top: 636px;
-    }
-
-    #resultado{
-        position: absolute;
-        top: 17px;
-        left: 35px;
-        height: 170px;
-    }
-
-    .texto-mensaje{
-        position: absolute;
-        top: 54px;
-        left: 9px;
-    }
-    
-    #muñeco, .muñeco{
-        width: 305px;
-        height: 128px;
-        position: absolute;
-        top: 11px;
-        left: 69px;
-    }
-
-    .logo-carloman{
-        position: absolute;
-        top: 32px;
-        left: -24px;
+    body{
+        margin: 0 1em;
     }
 
     .titulo-principal{
-        position: absolute;
-        top: 35px;
-        left: 109px;
-        text-align: center;
+        left: 50%;
+    }
+    
+    #texto{
+        left: 0;
+        top: 14%;
+        margin: 0 1em;
+        height: 193px;
+        font-size: 20px;
+        width: 80%;
+        color: #dfd7d7;
+        font-weight: bold;
     }
 
-    #texto{
-        position: absolute;
-        top: 209px;
-        left: 93px;
-        height: 273px;
-    }
     .limitaciones{
-        position: absolute;
-        top: 403px;
-        left: 28px;
+        top: 47%;
+        left: 0;
+        margin: 0 2em;
     }
 
     .botones{
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 427px;
-        left: 32px;
-        margin: 20px;
+        left: 5%;
+        top: 52%;
+        width: 84%;
     }
 
-    #boton-copiar{
-        position: absolute;
-        top: 221px;
-        left: 60px;
+    .boton{
+        font-size: 15px;
+        margin: 0 1em;
     }
-    
-    #sugerencia{
-        width: auto;
-        height: 10px;
+    .resultado{
+        top: 63%;
+        left: 5%;
+        width: 80%;
+        height: 26%;
+    }
+    #resultado{
+        left: 3%;
+        width: 91%;
+        height: 238px;
+        font-size: 20px;
+    }
+
+    #muñeco{
+        width: 36%;
+        right: 0;
     }
 
     #mensaje-no-encontrado{
-    font-size: 25px;
-    text-align: initial;
+        top: 23%;
+        left: -15px;
+        font-size: 25px;
     }
 
-    footer{
-        top: 936px;
-        width: 156%;
+    #sugerencia{
+        top: 64%;
     }
-}
+
+  }
+  
+  @media screen and (orientation: landscape) {
+    body{
+        height: auto;
+    }
+    .caja, #logo-carloman{
+        left: 0;
+    }
+    .titulo-principal{
+        font-size: 25px;
+    }
+    #texto{
+        left: 5%;
+        width: 53%;
+        height: 45%;
+        font-size: 20px;
+    }
+    .limitaciones{
+        left: 5%;
+        top: 68%;
+    }
+    #alerta:hover{
+        transform: none;
+    }
+    .botones{
+        left: 5%;
+        top: 77%;
+        height: 15%;
+        width: 55%;
+    }
+    .boton{
+        font-size: 20px;
+    }
+    .resultado{
+        height: 76%;
+    }
+    #resultado{
+        height: 86%;
+        margin: 0 -9px;
+        font-size: 20px;
+    }
+    #muñeco{
+        width: 75%;
+        left: 2em;
+    }
+    #mensaje-no-encontrado{
+        top: 56%;
+        font-size: 24px;
+        left: 10px;
+    }
+    #sugerencia{
+    top: 82%;
+    font-size: 12px;
+    left: 10px;
+    }
+    #boton-copiar{
+        height: 15%;
+        bottom: 5%;
+        margin: 0 -6px;
+    }
+  }
+  
+
+
+

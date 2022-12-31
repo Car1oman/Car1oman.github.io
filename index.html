@@ -1,18 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
   <head>
+    <link rel="stylesheet" href="reset.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Encriptador de texto (Reto - Alura)</title>
-    <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
   </head>
 
-  <body class="cuerpo">
+  <body>
+    <div class="fondo"></div>
     <header>
         <section class="caja">
-            <figure class="logo-carloman">
+            <figure>
                 <img id="logo-carloman" src="logo.svg" alt="letra c como logo">
             </figure>
             <h1 class="titulo-principal">Encriptador de texto</h1>
@@ -21,14 +22,14 @@
     </header>
     <main>
         <form>
-            <div class="ingesar-texto">
+            <div>
                 <textarea id="texto" placeholder="Ingrese el texto aquí"></textarea>
             </div>
             <section class="limitaciones">
                 <figure>
-                    <img src="Vector.svg" alt="imagen de un circulo que contiene un signo de admiracion">
+                    <img id="alerta" src="Vector.svg" alt="imagen de un circulo que contiene un signo de admiracion">
                 </figure>
-                <h5>Solo letras minúsculas y sin acentos</h5>
+                <h5 id="advertencia">Solo letras minúsculas y sin acentos</h5>
             </section>
             <div class="botones">
                 <button id="boton" class="boton" type="button" onclick="encriptar()">Encriptar</button>
@@ -36,27 +37,36 @@
             </div>
     
         </form>
-        <br>
         <section class="resultado">
-            <div class="mostrar-resultado">
-                <textarea id="resultado"></textarea>
-            </div>
-            <figure class="muñeco">
+            <div><textarea id="resultado"></textarea></div>
+            <figure>
                 <img id="muñeco" src="Muñeco.svg" alt="imagen de una persona con una lupa">
             </figure>
-            <div class="texto-mensaje">
-                <div id="mensaje-no-encontrado" class="mensaje-no-encontrado">
-                    Ningún mensaje fue encontrado
-                </div>
-                <div id="sugerencia" class="sugerencia">
-                    Ingresa el texto que desees encriptar o desencriptar
-                </div>
-            </div>
+            <div id="mensaje-no-encontrado">Ningún mensaje fue encontrado</div>
+            <div id="sugerencia">Ingresa el texto que desees encriptar o desencriptar</div>
+            <div><button id="boton-copiar" class="boton" type="button" onclick="copiarAlPortapapeles()">Copiar</button></div>
         </section>
         <section class="script">
                 <script>
-                    
-                    //Quitar los elementos cuando escribimos algo en el textarea
+                    //Ocultamos la sugerencia de minúsculas y tildes; el boton copiar y el textarea de resultados
+                    // ocultamos el texto y botón al cargar la página
+                    document.getElementById("advertencia").style.display = "none";
+                    document.getElementById("boton-copiar").style.display = "none";
+                    document.getElementById("resultado").style.display = "none";
+
+                    // mostramos el texto al hacer click en la imagen
+                    document.getElementById("alerta").onclick = function() {
+                      document.getElementById("advertencia").style.display = "block";
+                    };
+
+                    // ocultamos el texto al hacer click en cualquier otro lugar
+                    document.addEventListener("click", function(event) {
+                      if (event.target.id !== "alerta") {
+                        document.getElementById("advertencia").style.display = "none";
+                      }
+                    });
+
+                    //Quitamos los elementos cuando escribimos algo en el textarea
                     document.getElementById("texto").addEventListener("input", function() {
                     var texto = this.value;
                     if (!document.getElementById("texto").value) {
@@ -80,11 +90,14 @@
 
                     // Escuchamos el evento input del textarea
                     textarea.addEventListener('input', function() {
-                        // Si el textarea está vacío, borramos el resultado
+                        // Si el textarea está vacío, borramos el resultado, el botón copiar y el cuadro de resultado
                         if (this.value.trim() === '') {
                         resultado.innerHTML = '';
+                        document.getElementById("boton-copiar").style.display = "none";
+                        document.getElementById("resultado").style.display = "none";
                         }
                     });
+
 
                     function encriptar() {
                     // Obtén el texto del área de texto
@@ -95,11 +108,13 @@
             
                     // Actualizar el contenido del elemento "resultado" con el texto encriptado
                         document.getElementById("resultado").innerHTML = encriptado;
-                    //crear boton copiar
-
-                        if (encriptar){
-                            crearBotonCopiar();
+                    
+                    // Añadimos el botón copiar y el cuadro de texto de respuesta si se ingresó un texto
+                        if(texto != ""){
+                          document.getElementById("boton-copiar").style.display = "block";
+                          document.getElementById("resultado").style.display = "block";
                         }
+
                     }
 
                     function desencriptar() {
@@ -109,15 +124,17 @@
                         var desencriptado = algoritmoDeDesencriptacion(texto);          
                     // Actualizar el contenido del elemento "resultado" con el texto desencriptado
                         document.getElementById("resultado").innerHTML = desencriptado;
-                        if (desencriptar){
-                            crearBotonCopiar();
-                        }
+                    // Añadimos el botón copiar y el cuadro de texto de respuesta si se ingresó un texto
+                        if(texto != ""){
+                          document.getElementById("boton-copiar").style.display = "block";
+                          document.getElementById("resultado").style.display = "block";
+                        }                
                     }
 
                     
-                    function copiarAlPortapapeles(texto) {
+                    function copiarAlPortapapeles() {
 
-                        var resultado = document.getElementById("resultado")
+                        var resultado = document.getElementById("resultado");
                         resultado.select();
                         
                         // Copia el texto al portapapeles
@@ -127,25 +144,6 @@
                             console.error("Error al copiar al portapapeles: ", err);
                         }
                     }
-
-
-                    //Crear botón copiar
-                    function crearBotonCopiar() {
-                    // Check if the button already exists
-                        if (!document.getElementById("boton-copiar")) {
-                     // Crear el boton
-                            var boton = document.createElement("button");
-                            boton.setAttribute("id", "boton-copiar");
-                            boton.setAttribute("class", "boton")
-                            boton.innerHTML = "Copiar";
-                            boton.addEventListener("click", function() {
-                            copiarAlPortapapeles();
-                            });
-                        document.getElementsByClassName("resultado")[0].appendChild(boton);
-                        }
-                    }
-
-
 
                     function algoritmoDeEncriptacion(texto) {
                         if (texto.includes("e")) {
@@ -187,8 +185,8 @@
                 </script>
         </section>
     </main>
-    <footer id="footer">
-        <p>Creado por: Carloman Coronel</p>
+    <footer>
+        <p>&copy Copyright Carloman Coronel</p>
         <p>Términos de uso | Política de privacidad</p>
     </footer>
 
